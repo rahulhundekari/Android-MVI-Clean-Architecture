@@ -17,6 +17,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
+    flavorDimensions.add("environment")
+
+    productFlavors{
+        create("prod"){
+            isDefault = true
+        }
+        create("mock")
+    }
 }
 
 dependencies {

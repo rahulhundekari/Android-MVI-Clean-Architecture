@@ -15,8 +15,9 @@ import kotlinx.coroutines.flow.map
 import com.demo.domain.util.Result
 import com.demo.domain.util.onError
 import com.demo.domain.util.onSuccess
+import jakarta.inject.Inject
 
-class MovieRepositoryImpl(
+class MovieRepositoryImpl @Inject constructor(
     private val local: MovieDataSource.Local,
     private val remote: MovieDataSource.Remote,
     private val remoteMediator: MovieRemoteMediator,

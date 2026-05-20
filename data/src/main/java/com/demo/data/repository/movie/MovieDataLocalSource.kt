@@ -11,8 +11,9 @@ import com.demo.data.entities.toMovieDbData
 import com.demo.data.exception.DataNotFoundException
 import com.demo.domain.entities.MovieEntity
 import com.demo.domain.util.Result
+import javax.inject.Inject
 
-class MovieDataLocalSource(
+class MovieDataLocalSource @Inject constructor(
     private val movieDao: MovieDao,
     private val remoteDao: MovieRemoteKeyDao
 ) : MovieDataSource.Local {

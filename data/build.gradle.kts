@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -12,7 +13,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-        buildConfigField("String", "BASE_URL","\"https://movies-mock-server.vercel.app/\"")
+        buildConfigField("String", "BASE_URL", "\"https://movies-mock-server.vercel.app/\"")
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -42,10 +43,17 @@ dependencies {
     implementation(libs.material)
 
     implementation(libs.paging.common)
+
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-    implementation(libs.androidx.room.runtime)
-    ksp(libs.androidx.room.compiler)
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(libs.room.paging)
+    ksp(libs.room.compiler)
+
+    implementation(libs.hilt.dagger.android)
+    ksp(libs.hilt.dagger.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)

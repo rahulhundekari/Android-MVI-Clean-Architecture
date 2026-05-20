@@ -1,6 +1,7 @@
 package com.demo.data.db
 
 import androidx.room.Database
+import androidx.room.RoomDatabase
 import com.demo.data.db.favoritemovies.FavoriteMovieDao
 import com.demo.data.db.movies.MovieDao
 import com.demo.data.db.movies.MovieRemoteKeyDao
@@ -13,7 +14,7 @@ import com.demo.data.entities.MovieRemoteKeyDBData
     version = 1,
     exportSchema = false
 )
-abstract class MovieDatabase {
+abstract class MovieDatabase : RoomDatabase() {
     abstract fun moviesDao() : MovieDao
     abstract fun favoriteMoviesDao(): FavoriteMovieDao
     abstract fun movieRemoteKeyDao(): MovieRemoteKeyDao
