@@ -1,13 +1,13 @@
-package com.demo.android_mvi_clean_architecture.ui.base
+package com.demo.android_mvi_clean_architecture.ui.feed
 
 import androidx.lifecycle.viewModelScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.demo.android_mvi_clean_architecture.base.BaseViewModel
+import com.demo.android_mvi_clean_architecture.ui.base.BaseViewModel
 import com.demo.android_mvi_clean_architecture.entities.MovieListItem
-import com.demo.android_mvi_clean_architecture.ui.base.usecase.GetMoviesWithSeparators
+import com.demo.android_mvi_clean_architecture.ui.feed.usecase.GetMoviesWithSeparators
 import com.demo.android_mvi_clean_architecture.util.singleSharedFlow
 import com.demo.domain.util.NetworkMonitor
 import dagger.hilt.android.lifecycle.HiltViewModel

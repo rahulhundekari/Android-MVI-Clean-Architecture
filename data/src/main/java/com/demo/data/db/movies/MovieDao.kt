@@ -17,11 +17,11 @@ interface MovieDao {
     fun getMovies(): List<MovieDBData>
 
     @Query("SELECT * FROM movies_table WHERE id=:movieId")
-    fun getMovie(movieId: Int): MovieDBData?
+    suspend fun getMovie(movieId: Int): MovieDBData?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveMovies(movieDBData: List<MovieDBData>)
+    suspend fun saveMovies(movieDBData: List<MovieDBData>)
 
     @Query("DELETE FROM movies_table WHERE id NOT IN (SELECT movieId FROM favorite_movies_table)")
-    fun clearMoviesExceptFavorite()
+    suspend fun clearMoviesExceptFavorite()
 }

@@ -1,4 +1,4 @@
-package com.demo.android_mvi_clean_architecture.ui.base
+package com.demo.android_mvi_clean_architecture.ui.feed
 
 
 data class FeedUiState(

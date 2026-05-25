@@ -1,4 +1,4 @@
-package com.demo.android_mvi_clean_architecture.ui.base.usecase
+package com.demo.android_mvi_clean_architecture.ui.feed.usecase
 
 import androidx.paging.PagingData
 import androidx.paging.insertSeparators

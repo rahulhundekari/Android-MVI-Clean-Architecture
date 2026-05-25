@@ -1,5 +1,6 @@
 package com.demo.android_mvi_clean_architecture.util
 
+import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import kotlinx.coroutines.channels.BufferOverflow
@@ -15,8 +16,9 @@ fun <T> singleSharedFlow() = MutableSharedFlow<T>(
     onBufferOverflow = BufferOverflow.DROP_OLDEST
 )
 
+@SuppressLint("ComposableNaming")
 @Composable
-fun <T> Flow<T>.CollectAsEffect(effect: suspend (T) -> Unit) {
+fun <T> Flow<T>.collectAsEffect(effect: suspend (T) -> Unit) {
     LaunchedEffect(key1 = Unit) {
         onEach(effect).launchIn(this)
     }

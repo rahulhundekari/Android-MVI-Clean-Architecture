@@ -1,4 +1,4 @@
-package com.demo.android_mvi_clean_architecture.base
+package com.demo.android_mvi_clean_architecture.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
