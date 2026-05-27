@@ -2,6 +2,7 @@ package com.demo.android_mvi_clean_architecture.ui.main
 
 import androidx.compose.material3.NavigationBar
 import androidx.compose.runtime.Composable
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -10,6 +11,9 @@ import com.demo.android_mvi_clean_architecture.navigation.Graph
 import com.demo.android_mvi_clean_architecture.navigation.Screen
 import com.demo.android_mvi_clean_architecture.ui.navigatiobar.NavigationBarNestedGraph
 import com.demo.android_mvi_clean_architecture.ui.navigatiobar.NavigationBarScreen
+import com.demo.android_mvi_clean_architecture.ui.search.SearchScreen
+import com.demo.android_mvi_clean_architecture.ui.search.SearchView
+import com.demo.android_mvi_clean_architecture.ui.search.SearchViewModel
 import com.demo.android_mvi_clean_architecture.util.composableHorizontalSlide
 import com.demo.android_mvi_clean_architecture.util.sharedViewModel
 
@@ -41,6 +45,15 @@ fun MainGraph(
                     parentRoute = Graph.Main::class
                 )
             }
+        }
+
+        composableHorizontalSlide<Screen.Search> {
+            val viewModel = hiltViewModel<SearchViewModel>()
+
+            SearchScreen(
+                mainNavHostController = mainNavController,
+                viewModel = viewModel
+            )
         }
     }
 }

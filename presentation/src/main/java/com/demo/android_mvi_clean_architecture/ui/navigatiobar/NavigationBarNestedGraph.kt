@@ -5,6 +5,8 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.demo.android_mvi_clean_architecture.navigation.Screen
+import com.demo.android_mvi_clean_architecture.ui.favorite.FavoriteScreen
+import com.demo.android_mvi_clean_architecture.ui.favorite.FavoriteViewModel
 import com.demo.android_mvi_clean_architecture.ui.feed.FeedScreen
 import com.demo.android_mvi_clean_architecture.ui.feed.FeedViewModel
 import com.demo.android_mvi_clean_architecture.ui.main.MainRouter
@@ -29,6 +31,14 @@ fun NavigationBarNestedGraph(
                 mainRouter = MainRouter(mainNavController),
                 viewModel = viewModel,
                 sharedViewModel = backStack.sharedViewModel(navController = mainNavController)
+            )
+        }
+
+        composableHorizontalSlide<Screen.Favorites> {
+            val viewModel = hiltViewModel<FavoriteViewModel>()
+            FavoriteScreen(
+                mainRouter = MainRouter(mainNavController),
+                viewModel = viewModel
             )
         }
     }

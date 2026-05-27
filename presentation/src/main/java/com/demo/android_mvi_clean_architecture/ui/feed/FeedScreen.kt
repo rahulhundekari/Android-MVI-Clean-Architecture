@@ -120,7 +120,7 @@ fun FeedView(
 @Composable
 fun MovieList(
     movies: LazyPagingItems<MovieListItem>,
-    lazyGridState: LazyGridState,
+    lazyGridState: LazyGridState = rememberLazyGridState(),
     onMovieClick: (Int) -> Unit,
     config: MovieSpanSizeConfig = MovieSpanSizeConfig(3)
 ) {
